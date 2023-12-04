@@ -68,7 +68,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply scrollbar scrollbar-w-4 scrollbar-thumb-[#BABAC0] scrollbar-thumb-rounded-[16px] border-border;
   }
   body {
     @apply bg-background text-foreground;
