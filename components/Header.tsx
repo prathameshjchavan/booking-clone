@@ -1,47 +1,19 @@
 "use client";
 
 import { Popover, Transition } from "@headlessui/react";
-import {
-  ChevronDownIcon,
-  HomeIcon,
-  PaperAirplaneIcon,
-  ChatBubbleLeftIcon,
-  PlayCircleIcon,
-  PhoneIcon,
-} from "@heroicons/react/20/solid";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment, useState } from "react";
-
-const products = [
-  {
-    name: "Book a Stay",
-    description: "Get a better understanding of your traffic",
-    href: "#",
-    icon: HomeIcon,
-  },
-  {
-    name: "Book a Flight",
-    description: "Speak directly to your customers",
-    href: "#",
-    icon: PaperAirplaneIcon,
-  },
-  {
-    name: "Contact our Support Team",
-    description: "Your customer data will be safe and secure",
-    href: "#",
-    icon: ChatBubbleLeftIcon,
-  },
-];
-
-const callsToAction = [
-  { name: "See Demo Booking", href: "#", icon: PlayCircleIcon },
-  { name: "Contact Support", href: "#", icon: PhoneIcon },
-];
+import { Fragment } from "react";
+import HeaderMobile from "./HeaderMobile";
+import useMenuStore from "@/stores/useMenuStore";
+import products from "@/data/products";
+import { callsToAction } from "@/data/callsToAction";
+import { links } from "@/data/links";
 
 const Header = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const { setMobileMenuOpen } = useMenuStore();
 
   return (
     <header className="bg-[#013B94]">
@@ -123,18 +95,15 @@ const Header = () => {
             </Transition>
           </Popover>
 
-          <Link href="#" className="text-sm font-semibold leading-6 text-white">
-            Flights
-          </Link>
-          <Link href="#" className="text-sm font-semibold leading-6 text-white">
-            Car Rentals
-          </Link>
-          <Link href="#" className="text-sm font-semibold leading-6 text-white">
-            Attractions
-          </Link>
-          <Link href="#" className="text-sm font-semibold leading-6 text-white">
-            Flight + Hotel
-          </Link>
+          {links.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-sm font-semibold leading-6 text-white"
+            >
+              {item.name}
+            </Link>
+          ))}
         </Popover.Group>
 
         <div className="flex lg:hidden">
@@ -154,6 +123,8 @@ const Header = () => {
           </Link>
         </div>
       </nav>
+
+      <HeaderMobile />
     </header>
   );
 };
