@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="scrollbar-track-[#103B94]">
         <Header />
         {children}
       </body>
