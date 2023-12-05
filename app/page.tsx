@@ -1,3 +1,4 @@
+import SearchForm from "@/components/SearchForm";
 import trending_data from "@/data/trending";
 import Image from "next/image";
 
@@ -12,7 +13,7 @@ export default function Home() {
       </section>
 
       <section className="mx-4 -mb-14 mt-0 px-2 lg:px-4">
-        {/* SearchForm */}
+        <SearchForm />
       </section>
 
       <section className="mx-auto mt-10 max-w-7xl rounded-t-lg bg-white p-6">
