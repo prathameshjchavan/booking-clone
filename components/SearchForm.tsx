@@ -59,7 +59,18 @@ const SearchForm = () => {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    const checkin = format(values.dates.from, "yyyy-MM-dd");
+    const checkout = format(values.dates.to, "yyyy-MM-dd");
+    const url = new URL("https://www.booking.com/searchresults.html");
+
+    url.searchParams.set("ss", values.location);
+    url.searchParams.set("group_adults", values.adults.toString());
+    url.searchParams.set("group_children", values.childrens.toString());
+    url.searchParams.set("no_rooms", values.childrens.toString());
+    url.searchParams.set("checkin", checkin);
+    url.searchParams.set("checkout", checkout);
+
+    router.push(`/search?url=${url.href}`);
   }
 
   return (
