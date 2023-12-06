@@ -64,7 +64,7 @@ export const fetchResults = async (searchParams: SearchParams) => {
               },
             ],
           },
-          links: {
+          link: {
             _fns: [
               {
                 _fn: "xpath_one",

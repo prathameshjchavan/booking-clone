@@ -1,6 +1,5 @@
 import { fetchResults } from "@/lib/fetchResults";
 import { notFound } from "next/navigation";
-import results from "@/data/results.json";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -20,7 +19,7 @@ interface Props {
 const SearchPage = async ({ searchParams }: Props) => {
   if (!searchParams.url) notFound();
 
-  // const results = await fetchResults(searchParams);
+  const results = await fetchResults(searchParams);
 
   if (!results) return <div>No results...</div>;
 
@@ -61,7 +60,7 @@ const SearchPage = async ({ searchParams }: Props) => {
                   <Link
                     prefetch={false}
                     target="_blank"
-                    href={item.links}
+                    href={item.link}
                     className="font-bold text-blue-500 hover:text-blue-600 hover:underline"
                   >
                     {item.title}
