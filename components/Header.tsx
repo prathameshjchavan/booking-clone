@@ -16,7 +16,7 @@ const Header = () => {
   const { setMobileMenuOpen } = useMenuStore();
 
   return (
-    <header className="bg-[#013B94]">
+    <header className="h-[72px] border-b-2 border-white bg-[#013B94] ">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="bg-[#103B94]">
+    <main className="h-[calc(100%-72px)] overflow-y-scroll bg-[#103B94] scrollbar-track-[#103B94]">
       <section className="mx-auto max-w-7xl p-6">
         <h2 className="text-5xl font-bold text-white">Find your next stay</h2>
         <h3 className="py-5 text-xl text-white">
@@ -24,7 +24,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="scrollbar-track-white flex space-x-4 overflow-x-scroll py-5">
+        <div className="flex space-x-4 overflow-x-scroll py-5 scrollbar-track-white">
           {trending_data.map((item) => (
             <div key={item.id} className="shrink-0 cursor-pointer space-y-1">
               <Image

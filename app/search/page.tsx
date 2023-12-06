@@ -24,7 +24,7 @@ const SearchPage = async ({ searchParams }: Props) => {
   if (!results) return <div>No results...</div>;
 
   return (
-    <section>
+    <section className="h-[calc(100%-72px)] overflow-y-scroll scrollbar-track-white">
       <div className="mx-auto max-w-7xl p-6 lg:px-8">
         <h1 className="pb-3 text-4xl font-bold">Your Trip Results</h1>
 
