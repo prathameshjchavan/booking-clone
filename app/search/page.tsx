@@ -1,5 +1,6 @@
 import { fetchResults } from "@/lib/fetchResults";
 import { notFound } from "next/navigation";
+import results from "@/data/results.json";
 
 export type SearchParams = {
   url: string;
@@ -14,26 +15,16 @@ interface Props {
   searchParams: SearchParams;
 }
 
-async function fetch() {
-  return new Promise((res, rej) => {
-    setTimeout(() => {
-      res(true);
-    }, 10000);
-  });
-}
-
 const SearchPage = async ({ searchParams }: Props) => {
-  // if (!searchParams.url) notFound();
+  if (!searchParams.url) notFound();
 
   // const results = await fetchResults(searchParams);
 
-  // if (!results) return <div>No results...</div>;
+  if (!results) return <div>No results...</div>;
 
-  // console.log(results);
+  console.log(results);
 
-  await fetch();
-
-  return <div>SearchPage</div>;
+  return <section>SearchPage</section>;
 };
 
 export default SearchPage;
